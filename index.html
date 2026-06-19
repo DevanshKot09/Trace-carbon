@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarbonWise — Interactive Carbon Footprint & Sustainability Assistant</title>
+    <!-- Resource optimization hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#10b981" />
+  </head>
+  <body>
+    <!-- Accessible skip link for screen readers & keyboard bypass navigation -->
+    <a href="#app_main_canvas" class="skip-link">Skip to main dashboard content</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Graceful Service Worker registration for offline PWA compliance
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('ServiceWorker registered with scope:', reg.scope))
+            .catch(err => console.log('ServiceWorker registration details: ', err));
+        });
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,6 @@
+{
+  "name": "CarbonWise",
+  "description": "An interactive, beautiful carbon footprint tracking application designed to monitor, analyze, and reduce carbon emissions with gamification, calculator tools, and analytics dashboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

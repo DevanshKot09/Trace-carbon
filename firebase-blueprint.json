@@ -1,0 +1,68 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account and sustainability stats data.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "onboardingCompleted": { "type": "boolean" },
+        "sustainabilityScore": { "type": "number" },
+        "streakCount": { "type": "number" },
+        "level": { "type": "number" },
+        "levelProgress": { "type": "number" },
+        "stats": { "type": "object" },
+        "notificationsEnabled": { "type": "boolean" },
+        "weeklyDigestEnabled": { "type": "boolean" },
+        "theme": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "onboardingCompleted", "sustainabilityScore", "streakCount", "level", "levelProgress", "stats", "notificationsEnabled", "weeklyDigestEnabled", "theme"]
+    },
+    "Activity": {
+      "title": "Footprint Activity Log",
+      "description": "Activity item tracking CO2 emissions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "emissionValue": { "type": "number" },
+        "date": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "emissionValue", "date"]
+    },
+    "Goal": {
+      "title": "Sustainability Goal",
+      "description": "Goal set by a user to limit carbon emissions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "targetValue": { "type": "number" },
+        "currentValue": { "type": "number" },
+        "deadline": { "type": "string" },
+        "unit": { "type": "string" },
+        "completed": { "type": "boolean" }
+      },
+      "required": ["id", "title", "category", "targetValue", "currentValue", "deadline", "unit", "completed"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profile collection."
+    },
+    "users/{userId}/activities/{activityId}": {
+      "schema": "Activity",
+      "description": "Individual logged activity records."
+    },
+    "users/{userId}/goals/{goalId}": {
+      "schema": "Goal",
+      "description": "Logged safety targets and goals."
+    }
+  }
+}
